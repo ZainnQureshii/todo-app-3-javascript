@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+	<title>
+		
+	</title>
+	<style type="text/css">
+		html{
+			background-color:#FFD125;
+			font-family: candara;
+			font-size: 20px;
+			text-align: center;
+			text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+		}
+		.container{
+			padding:10px;
+			margin: auto;
+			width: 60%;
+			border:2px black solid;
+			border-radius: 15%;
+		}
+		p{
+			background-color: white;
+			margin-left:15px;
+			margin-right:15px;
+			padding-bottom: 15px;
+			border-radius: 18%;
+			font-family: amatic sc;
+			line-height: 12px;
+		}
+		hr{
+			display: block;
+			border-top: 1px solid black;
+			width:70%;
+		}
+		.button{
+			color:white;
+			font-size: 14px;
+			font-weight: bold;
+			width: 4.3rem;
+			height:28px;
+			background-color: #CEA832;
+			border:0;
+			border-top: 1.5px white solid;
+			border-left: 1.5px white solid;
+			padding: 2px;
+		}
+		#task{
+			height:21px;
+			font-size: 15px;
+			font-family: cambria;
+			font-weight: 600;
+		}
+	</style>
+	<script type="text/javascript">
+		
+	
+
+	tasks = [];
+	
+	function add(evt){
+
+if(evt==undefined||evt.keyCode==13)
+{
+	
+		newTasks = document.getElementById('task');
+		if(newTasks.value==""){
+			alert('Please Enter Your Task');
+			return false;
+		}
+		tasks.push(newTasks.value);
+		console.log(tasks);
+		document.getElementById('show').innerHTML += "<br>"+tasks.length+". "+tasks.slice(-1)+"<hr>";
+		newTasks.value = "";
+
+}		
+		
+	}
+	function del()
+	{
+		if(tasks==""){
+			alert('There are no Tasks to Delete');
+			return false;
+		}
+		tasks.pop();
+	     console.log(tasks);
+		document.getElementById('show').innerHTML="";
+		for (var i =0; i < tasks.length; i++) {
+			console.log(tasks[i]);
+		document.getElementById('show').innerHTML +="<br>"+(i+1) + ". " +tasks[i]+"<hr>";
+		}
+
+	}
+
+	
+	
+</script>
+</head>
+<body>
+	<h2>Create Your Tasks Here </h2>
+	<div class="container">
+	<input type="text" id="task" onkeypress="add(event);"/>
+	<input class="button" type="submit" name="" value="Add Task" onclick="add(undefined)" >
+	<input class="button" type="submit" name="" value="Delete Task" onclick="del()">
+	<p id="show"></p>
+	</div>
+</body>
+</html>
+
+<script type="text/javascript">
+	
+
+
+</script>
